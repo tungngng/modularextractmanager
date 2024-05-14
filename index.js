@@ -1,10 +1,7 @@
-function mergeKLists(lists) {
-  if (lists.length === 0) return null;
-  while (lists.length > 1) {
-    const first = lists.shift();
-    const second = lists.shift();
-    const merged = mergeTwoLists(first, second);
-    lists.push(merged);
+function canJump(nums) {
+  let lastPos = nums.length - 1;
+  for (let i = nums.length - 2; i >= 0; i--) {
+    if (i + nums[i] >= lastPos) lastPos = i;
   }
-  return lists[0];
+  return lastPos === 0;
 }
